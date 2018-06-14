@@ -42,5 +42,7 @@ or using the package manager of your preference.
     ```
     git clone https://github.com/christianfosli/wsl-copy.git
     ```
+    note: if your ~/.vim directory is already a repo check out
+    [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
 * Update like with any other git repo 
