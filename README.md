@@ -2,12 +2,17 @@
 
 ## Description
 
-Enables yanking text from vim to windows clipboard on Windows Subsystem for Linux,
-using the commands `wy`, and supporting standard vim operands like `wyaw` to yank a word.
+Enables yanking text from vim to windows clipboard on Windows Subsystem for Linux.
+
+Use the command `wy` from visual mode, or from normal mode with standard vim operands
+like `wyaw` to yank a word, etc.
+
+Technically what happens is we create a temp file /tmp/vimBuffer that we yank into,
+and then we send the file contents to clip.exe
 
 ## How to install
 
-This plugin can easily be installed, either with vim 8's native packages,
+This plugin can be installed with vim 8's native packages,
 or using the package manager of your preference.
 
 ### Installation with vims native packages support
@@ -39,7 +44,3 @@ or using the package manager of your preference.
     ```
 
 * Update like with any other git repo 
-
-## Issues
-
-At the moment newlines are not supported
