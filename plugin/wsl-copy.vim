@@ -4,10 +4,9 @@
 
 " Thanks to vim's 'help map-operator' to help me figure out how to do this
 
-
-nnoremap <silent> wy :set operatorfunc=WslSendToClipboard<cr>g@
-xnoremap <silent> wy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
-nnoremap <silent> wyy V wy<cr>
+nmap <silent> wy :set operatorfunc=WslSendToClipboard<cr>g@
+xmap <silent> wy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
+nmap <silent> wyy Vwy
 	
 function! WslSendToClipboard(type, ...) abort
 	let l:sel_save = &selection
@@ -25,8 +24,6 @@ function! WslSendToClipboard(type, ...) abort
 		normal! '[V']y
 	elseif a:type ==# 'char'
 		normal! `[v`]y
-	else 
-		echom a:type . ' operator not yet supported for wsl-copy'
 	endif
 
 	silent new /tmp/vimBuffer
