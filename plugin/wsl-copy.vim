@@ -28,9 +28,11 @@ function! WslSendToClipboard(type, ...) abort
 
 	silent new /tmp/vimBuffer
 	silent %d
-	silent normal! "0p
-	silent w
-	silent q
+	silent normal! "0P
+	if line('$') > 1 " Remove excess newlines if necessary
+		silent normal! Gdd
+	endif
+	silent normal! ZZ
 	silent ! cat /tmp/vimBuffer | clip.exe
 	redraw!
 
