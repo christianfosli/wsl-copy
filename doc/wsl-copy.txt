@@ -1,0 +1,36 @@
+*wsl-copy.txt*	For Vim version 8.1	Last change: 2018 October 20
+*wsl-copy*
+
+Copy text from Vim to Windows clipboard on WSL
+
+Author: Christian Fosli <cfosli@gmail.com>
+Website: https://github.com/christianfosli/wsl-copy
+License: MIT license
+
+
+COMMANDS
+
+The plugin adds the map-operator `wy`.
+It can be used together with any motion command, or from visual mode.
+
+Examples:
+
+	wyaw	wsl-copy a word
+	wy$	wsl-copy 'till the end of the line
+	vjjwy	wsl-copy selection (were selection is two lines down)
+
+
+RESTRICTIONS
+
+This plugin is only expected to work on WSL (Windows Subsystem for Linux)
+It uses the 'clip.exe' command to send text to windows clipboard.
+
+
+NOTE
+
+If wsl-copy is actioned line-wise, or from visual mode, a temporary file is
+created at /tmp/vimBuffer. The text to copy is put into the temporary file
+before it is passed on to windows clipboard.
+
+
+ vim:tw=79:ts=8:ft=help:norl:
