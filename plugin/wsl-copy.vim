@@ -19,12 +19,23 @@ function! WslSendToClipboard(type, ...) abort
 
     if a:0 " Invoked from visual mode, use gv command
         normal! gvy
+        call WslSendLastYankedToTmpFileAndSendToClip()
     elseif a:type ==# 'line'
         normal! '[V']y
+        echo "line!"
+        call WslSendLastYankedToTmpFileAndSendToClip()
     elseif a:type ==# 'char'
         normal! `[v`]y
+        call WslSendLastYankedToClip()
     endif
 
+    redraw!
+    echo 'wsl-copy: text yanked to clip.exe'
+    let &selection = l:sel_save
+    let @@ = l:reg_save
+endfunction
+
+function! WslSendLastYankedToTmpFileAndSendToClip() abort
     silent new /tmp/vimBuffer
     silent %d
     silent normal! "0P
@@ -33,9 +44,9 @@ function! WslSendToClipboard(type, ...) abort
     endif
     silent normal! ZZ
     silent ! cat /tmp/vimBuffer | clip.exe
-    redraw!
+endfunction
 
-    let &selection = l:sel_save
-    let @@ = l:reg_save
-
+" This function only works when there are no newlines:
+function! WslSendLastYankedToClip() abort
+    silent execute '! printf ' . shellescape(@@) . ' | clip.exe'
 endfunction
