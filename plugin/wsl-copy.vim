@@ -6,7 +6,6 @@
 
 nmap <silent> wy :set operatorfunc=WslSendToClipboard<cr>g@
 xmap <silent> wy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
-nmap <silent> wyy Vwy
 
 function! WslSendToClipboard(type, ...) abort
     let l:sel_save = &selection
