@@ -22,7 +22,6 @@ function! WslSendToClipboard(type, ...) abort
         call WslSendLastYankedToTmpFileAndSendToClip()
     elseif a:type ==# 'line'
         normal! '[V']y
-        echo "line!"
         call WslSendLastYankedToTmpFileAndSendToClip()
     elseif a:type ==# 'char'
         normal! `[v`]y
