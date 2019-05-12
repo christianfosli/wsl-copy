@@ -13,6 +13,9 @@ COMMANDS
 The plugin adds the map-operator `wy`.
 It can be used together with any motion command, or from visual mode.
 
+If you would like to map to other keys, simply
+`nmap <silent> <new keys> <Plug>WslCopy` and `xmap <silent> <new keys> <Plug>WslCopy`
+
 Examples:
 
 	wyaw	wsl-copy a word

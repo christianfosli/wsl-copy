@@ -7,6 +7,13 @@ Enables yanking text from vim to windows clipboard on Windows Subsystem for Linu
 Use the command `wy` from visual mode, or from normal mode with standard vim operands
 like `wyaw` to yank a word, `wy$` to yank until the end of the line, etc.
 
+## Remapping
+
+If you would like to use another mapping just remap in vimrc:
+
+    nmap <silent> <new command> <Plug>WslCopy
+    xmap <silent> <new command> <Plug>WslCopy
+
 ## How to install
 
 This plugin can be installed with vim 8's native packages,

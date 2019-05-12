@@ -4,8 +4,13 @@
 
 " Thanks to vim's 'help map-operator' to help me figure out how to do this
 
-nmap <silent> wy :set operatorfunc=WslSendToClipboard<cr>g@
-xmap <silent> wy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
+nnoremap <silent> <Plug>WslCopy :set operatorfunc=WslSendToClipboard<cr>g@
+xnoremap <silent> <Plug>WslCopy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
+
+if !hasmapto('<Plug>WslCopy')
+    nmap <silent> wy <Plug>WslCopy
+    xmap <silent> wy <Plug>WslCopy
+endif
 
 function! WslSendToClipboard(type, ...) abort
     let l:sel_save = &selection
