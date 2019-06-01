@@ -1,5 +1,5 @@
 *wsl-copy.txt*	For Vim version 8.1	Last change: 2018 October 20
-*wsl-copy*
+*wsl-copy* *:Wsly*
 
 Copy text from Vim to Windows clipboard on WSL
 
@@ -10,17 +10,14 @@ License: MIT license
 
 COMMANDS
 
-The plugin adds the map-operator `wy`.
-It can be used together with any motion command, or from visual mode.
+The plugin adds the map-operator <Plug>WslCopy.
 
-If you would like to map to other keys, simply
+Remap to your preferred key combination:
 `nmap <silent> <new keys> <Plug>WslCopy` and `xmap <silent> <new keys> <Plug>WslCopy`
 
-Examples:
+Or execute as a command from visual mode with `:Wsly`
 
-	wyaw	wsl-copy a word
-	wy$	wsl-copy 'till the end of the line
-	vjjwy	wsl-copy selection (were selection is two lines down)
+After remapping it can be used together with any motion command, or from visual mode.
 
 
 RESTRICTIONS

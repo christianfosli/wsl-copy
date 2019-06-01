@@ -6,11 +6,7 @@
 
 nnoremap <silent> <Plug>WslCopy :set operatorfunc=WslSendToClipboard<cr>g@
 xnoremap <silent> <Plug>WslCopy :<C-U>call WslSendToClipboard(visualmode(),1)<cr>
-
-if !hasmapto('<Plug>WslCopy')
-    nmap <silent> wy <Plug>WslCopy
-    xmap <silent> wy <Plug>WslCopy
-endif
+command -range Wsly exe "normal gv \<Plug>WslCopy"
 
 function! WslSendToClipboard(type, ...) abort
     let l:sel_save = &selection

@@ -4,15 +4,25 @@
 
 Enables yanking text from vim to windows clipboard on Windows Subsystem for Linux.
 
-Use the command `wy` from visual mode, or from normal mode with standard vim operands
-like `wyaw` to yank a word, `wy$` to yank until the end of the line, etc.
+Use `:Wsly` from visual mode to copy the current selection.
+
+Use `:Wsly` from normal mode to copy the last selection.
+
+Map to a key combination in order to use it with standard vim operands,
+like `*aw` to yank a word, `*$` to yank until the end of the line, etc
+(replacing * with the key combination you choose).
 
 ## Remapping
 
-If you would like to use another mapping just remap in vimrc:
+Map the plugin to the keys of your choice:
 
     nmap <silent> <new command> <Plug>WslCopy
     xmap <silent> <new command> <Plug>WslCopy
+
+For example:
+
+    nmap <silent> <leader>y <Plug>WslCopy
+    xmap <silent> <leader>y <Plug>WslCopy
 
 ## How to install
 
