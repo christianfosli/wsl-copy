@@ -16,13 +16,17 @@ like `*aw` to yank a word, `*$` to yank until the end of the line, etc
 
 Map the plugin to the keys of your choice:
 
-    nmap <silent> <new command> <Plug>WslCopy
-    xmap <silent> <new command> <Plug>WslCopy
+```vim
+nmap <silent> <new command> <Plug>WslCopy
+xmap <silent> <new command> <Plug>WslCopy
+```
 
 For example:
 
-    nmap <silent> <leader>y <Plug>WslCopy
-    xmap <silent> <leader>y <Plug>WslCopy
+```vim
+nmap <silent> <leader>y <Plug>WslCopy
+xmap <silent> <leader>y <Plug>WslCopy
+```
 
 ## How to install
 
