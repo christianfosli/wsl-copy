@@ -26,20 +26,31 @@ For example:
 
 ## How to install
 
-This plugin can be installed with vim 8's native packages,
-or using the package manager of your preference.
+Install using your favorite package manager, or...
 
-### Installation with vims native packages support
+If you're using vim 8 or neovim, no package manager is required, just
+clone the git repo into the applicable directory.
 
-* Cd to your applicable packages directory (mkdir if you haven't yet)
-  `cd ~/.vim/pack/foo/start`, or if you want to load plugin manually
-  (`:packadd!  wsl-copy`) `cd ~/.vim/pack/foo/opt`
+### Vim 8
 
-* Clone repo
-  `git clone https://github.com/christianfosli/wsl-copy.git`
+```bash
+mkdir -p ~/.vim/pack/christianfosli/start
+cd ~/.vim/pack/christianfosli/start
+git clone https://github.com/christianfosli/wsl-copy.git
+vim :helptags ~/.vim/pack/christianfosli/start/wsl-copy/docs
+```
 
-  note: if your ~/.vim directory is already a repo check out
-  [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+### Neovim
 
-* Generate help-file
-  `vim :helptags ~/.vim/pack/foo/start/wsl-copy/docs`
+```bash
+mkdir -p ~/.local/share/nvim/site/pack/christianfosli/start
+cd ~/.local/share/nvim/site/pack/christianfosli/start
+git clone https://github.com/christianfosli/wsl-copy.git
+nvim :helptags ~/.local/share/nvim/site/pack/christianfosli/start/wsl-copy/docs
+```
+
+
+If you want to load plugin manually with `:packadd! wsl-copy` replace
+`start` with `opt`
+
+See `:h packages` in vim/nvim for more info.
