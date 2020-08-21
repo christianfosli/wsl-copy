@@ -30,12 +30,8 @@ xmap <silent> <leader>y <Plug>WslCopy
 
 ## How to install
 
-Install using your favorite package manager, or...
-
-If you're using vim 8 or neovim, no package manager is required, just
-clone the git repo into the applicable directory.
-
-### Vim 8
+Install using your favorite package manager or use vim's built in package
+support:
 
 ```bash
 mkdir -p ~/.vim/pack/christianfosli/start
@@ -44,17 +40,7 @@ git clone https://github.com/christianfosli/wsl-copy.git
 vim :helptags ~/.vim/pack/christianfosli/start/wsl-copy/docs
 ```
 
-### Neovim
-
-```bash
-mkdir -p ~/.local/share/nvim/site/pack/christianfosli/start
-cd ~/.local/share/nvim/site/pack/christianfosli/start
-git clone https://github.com/christianfosli/wsl-copy.git
-nvim :helptags ~/.local/share/nvim/site/pack/christianfosli/start/wsl-copy/docs
-```
-
-
-If you want to load plugin manually with `:packadd! wsl-copy` replace
-`start` with `opt`
-
-See `:h packages` in vim/nvim for more info.
+If you are using neovim, replace `~/.vim` with `$XDG_DATA_HOME/nvim`
+(normally `~/.local/share/nvim`).
+Also, if you are using neovim, you might have a better experience dropping this
+plugin and using Neovim's `win32yank.exe` instead :-)
