@@ -1,5 +1,7 @@
 # wsl-copy
 
+![ci](https://github.com/christianfosli/wsl-copy/workflows/ci/badge.svg)
+
 ## Description
 
 Enables yanking text from vim to windows clipboard on Windows Subsystem for Linux.
