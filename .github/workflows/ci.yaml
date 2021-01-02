@@ -1,0 +1,47 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install wsl-copy
+        run: |
+          mkdir -p ~/.vim/pack/christianfosli/start
+          cd ~/.vim/pack/christianfosli/start
+          git clone "https://github.com/$GITHUB_REPOSITORY"
+      - name: Pretend we have clip.exe
+        run: |
+          # Creates mock clip.exe exectuable which redirects stdin to a file
+          echo '#!/bin/bash' > clip.exe
+          echo 'cat > ~/mock_windows_clipboard' >> clip.exe
+          chmod +x clip.exe
+          sudo mv clip.exe /usr/local/bin
+      - name: "Test: it sends the expected text to clip.exe"
+        run: |
+          # Arrange - Create a file to work with
+          echo "Some text" > myfile
+
+          # Act - Map `gy` (arbitrary keybinding) to WslCopy
+          # then copy the first line in ./myfile
+          vim ./myfile \
+            -c "nmap <silent>gy <Plug>WslCopy" \
+            -c "xmap <silent>gy <Plug>WslCopy" \
+            -c 'normal gy$' \
+            -c q
+
+          # Assert
+          if [[ "$(cat ~/mock_windows_clipboard)" == "Some text" ]]; then
+            echo "OK" 
+          else
+            echo "Error: expected 'Some text', got $(cat ~/mock_windows_clipboard)"
+            exit 1
+          fi
