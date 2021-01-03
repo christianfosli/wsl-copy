@@ -16,8 +16,8 @@ jobs:
       - name: Install wsl-copy
         run: |
           mkdir -p ~/.vim/pack/christianfosli/start
-          cd ~/.vim/pack/christianfosli/start
-          git clone "https://github.com/$GITHUB_REPOSITORY"
+          cp -r . ~/.vim/pack/christianfosli/start/wsl-copy
+          find ~/.vim/pack/christianfosli/start -not -path '*/\.git/*' # debug print files except .git
       - name: Pretend we have clip.exe
         run: |
           # Creates mock clip.exe exectuable which redirects stdin to a file
