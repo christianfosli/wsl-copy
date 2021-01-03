@@ -16,7 +16,7 @@ jobs:
       - name: Install wsl-copy
         run: |
           mkdir -p ~/.vim/pack/christianfosli/start
-          cp . ~/.vim/pack/christianfosli/start/wsl-copy
+          cp -r . ~/.vim/pack/christianfosli/start/wsl-copy
       - name: Pretend we have clip.exe
         run: |
           # Creates mock clip.exe exectuable which redirects stdin to a file
