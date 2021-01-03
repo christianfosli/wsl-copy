@@ -17,7 +17,7 @@ jobs:
         run: |
           mkdir -p ~/.vim/pack/christianfosli/start
           cp -r . ~/.vim/pack/christianfosli/start/wsl-copy
-          find ~/.vim/pack/christianfosli/start -not -path '*/\.*' # debug print excluding hidden files
+          find ~/.vim/pack/christianfosli/start -not -path '*/\.git/*' # debug print files except .git
       - name: Pretend we have clip.exe
         run: |
           # Creates mock clip.exe exectuable which redirects stdin to a file
